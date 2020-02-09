@@ -1,0 +1,4 @@
+.JumboFooter {
+    background: #D1C4E9;
+    @include zero-margin(20px, 0px);
+}
