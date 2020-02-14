@@ -8,6 +8,10 @@ class Nav extends Component {
         super(props);
     }
 
+   /* componentWillMount() {
+        this.props.notifypathname(window.location.pathname);
+    }*/
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark Nav">

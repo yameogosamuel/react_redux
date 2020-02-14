@@ -16,8 +16,6 @@ import { createBrowserHistory } from 'history';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-store.dispatch(fetchEmployees());
-
 
 export const history = createBrowserHistory({forceRefresh: true})
 

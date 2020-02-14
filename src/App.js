@@ -14,12 +14,26 @@ import AddEmployee from "./containers/AddEmployee";
 class App extends Component{
   constructor(props){
     super(props);
+    this.state = {
+        pathname: '',
+    };
+    this.notifyPathname = this.notifyPathname.bind(this);
   }
+
+    notifyPathname(pathname){
+      this.setState({
+         pathname: pathname,
+      });
+    }
+
   render() {
     return (
         <Router>
             <div className="App">
-                <Nav />
+                <Nav
+                    notifyPathname = {this.notifyPathname}
+                    pathname = {this.state.pathname}
+                />
                 <JumboHeader />
                 <Switch>
                     <Route path="/"
@@ -32,7 +46,8 @@ class App extends Component{
                     />
                     <Route path="/edit/:id"
                            exact
-                           component={() => <AddEmployee />}
+                           employee={this.state.employee}
+                           component={(props) => <AddEmployee {...props} />}
                     />
                 </Switch>
                 <JumboFooter />
